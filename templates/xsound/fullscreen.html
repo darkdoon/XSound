@@ -1,0 +1,47 @@
+        <section>
+            <section>
+                <h1>fullscreen <span class="returns">Returns : <span>undefined</span></span></h1>
+                <hr />
+                <p>
+                    This method changes HTMLElement to full screen.
+                </p>
+            </section>
+            <section>
+<textarea class="codemirror">
+console.log(&quot;X.fullscreen&quot;);
+
+var video = document.querySelector(&apos;video&apos;);
+
+document.onkeydown = function(event) {
+    switch (event.keyCode) {
+        case 32 :
+            // Space
+            try {
+                X.fullscreen(video);
+            } catch (error) {
+                window.alert(error.message);
+            }
+
+            break;
+        case 27 :
+            // Esc
+            try {
+                X.exitFullscreen();
+            } catch (error) {
+                window.alert(error.message);
+            }
+
+            break;
+        default :
+            break;
+    }
+};
+</textarea>
+                <p>
+                    <video width="640" height="480" controls>
+                        <source src="https://weblike-curtaincall.ssl-lolipop.jp/portfolio-music-v/video/forever-love-piano-instruments.webm" type="video/webm" />
+                        <source src="https://weblike-curtaincall.ssl-lolipop.jp/portfolio-music-v/video/forever-love-piano-instruments.mp4" type="video/mp4" />
+                    </video>
+                </p>
+            </section>
+        </section>

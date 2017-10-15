@@ -1,0 +1,66 @@
+        <section>
+            <section>
+                <h1>ajax <span class="returns">Returns : <span>undefined</span></span></h1>
+                <hr />
+                <p>
+                    This method gets the instance of ArrayBuffer by Ajax.
+                </p>
+                <table>
+                    <caption>Arguments</caption>
+                    <thead><tr><th scope="col"></th><th scope="col">Type</th><th scope="col">Description</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <th>1st</th>
+                            <td><span class="type">Object</span></td>
+                            <td>
+                                This argument is plain object that has the following properties.
+                                <dl>
+                                    <dt>url <span class="type">string</span></dt>
+                                    <dd>This value is resource URL.</dd>
+                                    <dt>timeout <span class="type">number</span></dt>
+                                    <dd>This value is Ajax timeout.</dd>
+                                    <dt>success <span class="type">function</span></dt>
+                                    <dd>This function is invoked on success.</dd>
+                                    <dt>error <span class="type">function</span></dt>
+                                    <dd>This function is invoked on error.</dd>
+                                    <dt>progress <span class="type">function</span></dt>
+                                    <dd>This function is invoked during connection.</dd>
+                                </dl>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section>
+<textarea class="codemirror">
+console.log(&quot;X.ajax&quot;);
+
+X.ajax({
+    url      : &apos;resources/audio/forever-love-piano-instruments.wav&apos;,
+    timeout  : 60000, // (60 sec)
+    success  : function(event, arrayBuffer) {
+        // The 1st argument is XMLHttpRequestProgressEvent
+        // The 2nd argument is ArrayBuffer
+
+        console.log(&apos;success&apos;);
+        console.dir(event);
+        console.dir(arrayBuffer);
+    },
+    error    : function(event, textStatus) {
+        // The 1st argument is XMLHttpRequestProgressEvent
+        // The 2nd argument is either &apos;error&apos; or &apos;timeout&apos;
+
+        console.log(&apos;error&apos;);
+        console.dir(event);
+        console.dir(textStatus);
+    },
+    progress : function(event) {
+        // The 1st argument is XMLHttpRequestProgressEvent
+
+        console.log(&apos;progress&apos;);
+        console.dir(event);
+    }
+});
+</textarea>
+            </section>
+        </section>

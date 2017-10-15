@@ -1,0 +1,69 @@
+        <section>
+            <section>
+                <h1>setup <span class="returns">Returns : <span>MediaModule | MediaFallbackModule</span></span></h1>
+                <hr />
+                <p>
+                    This method setups HTMLMediaElement, media formats and event listeners.
+                </p>
+                <table>
+                    <caption>Arguments</caption>
+                    <thead><tr><th scope="col"></th><th scope="col">Type</th><th scope="col">Description</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <th>1st</th>
+                            <td><span class="type">Object</span></td>
+                            <td>
+                                This argument is plain object that has the following properties.
+                                <dl>
+                                    <dt>media <span class="type">HTMLAudioElement</span> or <span class="type">HTMLVideoElement</span></dt>
+                                    <dd>This value is the instance of HTMLAudioElement or HTMLVideoElement.</dd>
+                                    <dt>formats <span class="type">Array</span></dt>
+                                    <dd>This value is the array that contains media formats.</dd>
+                                    <dt>listeners <span class="type">Object</span></dt>
+                                    <dd>This value is the associative array that contains event listeners that are defined by HTMLMediaElement.</dd>
+                                </dl>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section>
+<textarea class="codemirror">
+console.log(&quot;X(&apos;media&apos;).setup&quot;);
+
+var mediaPlayer = null;
+
+if (X.IS_XSOUND) {
+    mediaPlayer = X(&apos;media&apos;);  // Use Web Audio API (MediaElementAudioSourceNode)
+} else {
+    mediaPlayer = X(&apos;media&apos;);  // Not use Web Audio API (Fallback by HTMLMediaElement)
+}
+
+var listeners = {
+    // The 1st argument is event object
+    loadstart      : function(event) {},
+    loadedmetadata : function(event) {},
+    loadeddata     : function(event) {},
+    canplay        : function(event) {},
+    canplaythrough : function(event) {},
+    play           : function(event) {},
+    pause          : function(event) {},
+    timeupdate     : function(event) {},
+    ended          : function(event) {}
+    // ...etc
+};
+
+try {
+    X(&apos;media&apos;).setup({
+        media     : document.querySelector(&apos;audio&apos;),
+        formats   : [&apos;wav&apos;, &apos;ogg&apos;, &apos;mp3&apos;],
+        listeners : listeners
+    });
+} catch (error) {
+    // Cannot use HTMLMediaElement (for example, less than IE9)
+    window.alert(error.message);
+}
+</textarea>
+                <p><audio controls></audio></p>
+            </section>
+        </section>

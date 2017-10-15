@@ -1,0 +1,26 @@
+        <section>
+            <section>
+                <h1>ready <span class="returns">Returns : <span>StreamModule</span></span></h1>
+                <hr />
+                <p>
+                    This method does not do anything.
+                </p>
+            </section>
+            <section>
+<textarea class="codemirror">
+console.log(&quot;X(&apos;stream&apos;).ready&quot;);
+
+var constraints = {
+    audio : true,
+    video : true
+};
+
+try {
+    X(&apos;stream&apos;).setup(constraints, function(){}, function(){});
+    X(&apos;stream&apos;).ready();
+} catch (error) {
+    window.alert(error.message);
+}
+</textarea>
+            </section>
+        </section>

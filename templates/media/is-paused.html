@@ -1,0 +1,73 @@
+        <section>
+            <section>
+                <h1>isPaused <span class="returns">Returns : <span>boolean</span></span></h1>
+                <hr />
+                <p>
+                    This method is to check pause.
+                </p>
+            </section>
+            <section>
+<textarea class="codemirror">
+console.log(&quot;X(&apos;media&apos;).isPaused&quot;);
+
+var mediaPlayer = null;
+
+if (X.IS_XSOUND) {
+    mediaPlayer = X(&apos;media&apos;);  // Use Web Audio API (MediaElementAudioSourceNode)
+} else {
+    mediaPlayer = X(&apos;media&apos;);  // Not use Web Audio API (Fallback by HTMLMediaElement)
+}
+
+var listeners = {
+    canplaythrough : function(event) {
+        console.log(&apos;canplaythrough&apos;);
+        console.log(X(&apos;media&apos;).isPaused());
+
+        document.querySelector(&apos;button&apos;).onclick = function() {
+            if (X(&apos;media&apos;).isPaused()) {
+                X(&apos;media&apos;).start(X(&apos;media&apos;).param(&apos;currentTime&apos;));
+                this.textContent = &apos;PAUSE&apos;;
+            } else {
+                X(&apos;media&apos;).stop();
+                this.textContent = &apos;START&apos;;
+            }
+        };
+    },
+    play           : function(event) {
+        console.log(&apos;play&apos;);
+        console.log(X(&apos;media&apos;).isPaused());
+    },
+    pause          : function(event) {
+        console.log(&apos;pause&apos;);
+        console.log(X(&apos;media&apos;).isPaused());
+    },
+    timeupdate     : function(event) {
+        console.log(&apos;timeupdate&apos;);
+        console.log(X(&apos;media&apos;).isPaused());
+    },
+    ended          : function(event) {
+        console.log(&apos;ended&apos;);
+        console.log(X(&apos;media&apos;).isPaused());
+
+        X(&apos;media&apos;).param(&apos;currentTime&apos;, 0);
+        document.querySelector(&apos;button&apos;).textContent = &apos;START&apos;;
+    }
+};
+
+try {
+    X(&apos;media&apos;).setup({
+        media     : document.querySelector(&apos;audio&apos;),
+        formats   : [&apos;wav&apos;, &apos;ogg&apos;, &apos;mp3&apos;],
+        listeners : listeners
+    }).ready(&apos;resources/audio/forever-love-piano-instruments&apos;);
+} catch (error) {
+    // Cannot use HTMLMediaElement (for example, less than IE9)
+    window.alert(error.message);
+}
+</textarea>
+                <dl class="sound-controllers">
+                    <dt class="invisibility"><audio></audio></dt>
+                    <dd><button type="button">START</button></dd>
+                </dl>
+            </section>
+        </section>

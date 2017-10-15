@@ -1,0 +1,72 @@
+        <section>
+            <section>
+                <h1>param <span class="returns">Returns : <span>number | OscillatorModule</span></span></h1>
+                <hr />
+                <p>
+                    This method gets or sets parameters.
+                </p>
+                <table>
+                    <caption>Arguments</caption>
+                    <thead><tr><th scope="col"></th><th scope="col">Type</th><th scope="col">Description</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <th>1st</th>
+                            <td><span class="type">string</span></td>
+                            <td>This value is key for parameters.</td>
+                        </tr>
+                        <tr>
+                            <th>2nd</th>
+                            <td><span class="type">number</span> or <span class="type">undefined</span></td>
+                            <td>This value is value for parameters. If this value is undefined, this method is getter.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>or,</p>
+                <table>
+                    <caption>Arguments</caption>
+                    <thead><tr><th scope="col"></th><th scope="col">Type</th><th scope="col">Description</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <th>1st</th>
+                            <td><span class="type">Object</span></td>
+                            <td>This value is associative array for parameters.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section>
+<textarea class="codemirror">
+console.log(&quot;X(&apos;oscillator&apos;).param&quot;);
+
+X(&apos;oscillator&apos;).setup(true);
+
+var isStop = true;
+
+document.querySelector(&apos;button&apos;).addEventListener(&apos;click&apos;, function() {
+    if (isStop) {
+        X(&apos;oscillator&apos;).start(440);
+        this.textContent = &apos;STOP&apos;;
+    } else {
+        X(&apos;oscillator&apos;).stop();
+        this.textContent = &apos;START&apos;;
+    }
+
+    isStop = !isStop;
+}, false);
+
+document.querySelector(&apos;[type=&quot;range&quot;]&apos;).addEventListener(&apos;input&apos;, function() {
+    X(&apos;oscillator&apos;).param(&apos;mastervolume&apos;, this.valueAsNumber);
+    // or,
+    // X(&apos;oscillator&apos;).param({mastervolume : this.valueAsNumber});
+
+    document.querySelector(&apos;#output-master-volume&apos;).textContent = X(&apos;oscillator&apos;).param(&apos;mastervolume&apos;);
+}, false);
+</textarea>
+                <dl class="sound-controllers">
+                    <dt class="invisibility">Sound Controller</dt>
+                    <dd><button type="button">START</button></dd>
+                    <dt>mastervolume : <span id="output-master-volume">1</span></dt>
+                    <dd><input type="range" value="1" min="0" max="1" step="0.05" /><dd>
+                </dl>
+            </section>
+        </section>

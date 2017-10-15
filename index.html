@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<title>XSound - Web Audio API Library -</title>
+<meta name="author" content="池田友洋, Tomohiro IKEDA, rilakkuma3xjapan" />
+<meta name="description" content="HTML5 Web Audio API Library, HTML5 Web Audio API ライブラリ" />
+<meta name="keywords" content="XSound, xsound, XSound.js, xsound.js, Web Audio API, Web Audio API Library, Web Audio API ライブラリ" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes" />
+<meta name="format-detection" content="telephone=no" />
+<meta property="og:title" content="XSound" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://korilakkuma.github.io/XSound/" />
+<meta property="og:image" content="https://korilakkuma.github.io/XSound/images/icon.png" />
+<meta property="og:description" content="HTML5 Web Audio API Library" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@xsoundjs">
+<link rel="canonical" href="https://korilakkuma.github.io/XSound/" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro" type="text/css" media="all" />
+<link rel="stylesheet" href="lib/codemirror/codemirror.css" type="text/css" media="all" />
+<link rel="stylesheet" href="lib/codemirror/eclipse.css" type="text/css" media="all" />
+<link rel="stylesheet" href="stylesheets/css/main.css" type="text/css" media="all" />
+<script type="text/javascript">
+<!--
+    (function() {
+        if ((location.hostname === 'korilakkuma.github.io') && (location.protocol !== 'https:')) {
+            location.href = 'https://korilakkuma.github.io/XSound/';
+        }
+    })();
+//-->
+</script>
+<script type="text/javascript" src="lib/jquery/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="lib/codemirror/codemirror.js"></script>
+<script type="text/javascript" src="lib/codemirror/javascript.js"></script>
+<script type="text/javascript" src="lib/codemirror/sublime.js"></script>
+<script type="text/javascript" src="lib/jquery-socialbutton/jquery.socialbutton-1.9.1.min.js"></script>
+<script type="text/javascript" src="javascripts/xsound.js"></script>
+<script type="text/javascript" src="javascripts/main.js"></script>
+<!-- Google Analytics -->
+<script type="text/javascript">
+<!--
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-41390233-1', 'auto');
+    ga('send', 'pageview');
+//-->
+</script>
+<!-- /Google Analytics -->
+</head>
+
+
+<body>
+    <header>
+        <p id="github-buttons">
+            <iframe src="https://ghbtns.com/github-btn.html?user=Korilakkuma&repo=XSound&type=star&count=true&size=small" frameborder="0" scrolling="0" width="130" height="30"></iframe>
+            <iframe src="https://ghbtns.com/github-btn.html?user=Korilakkuma&repo=XSound&type=fork&count=true&size=small" frameborder="0" scrolling="0" width="130" height="30"></iframe>
+        </p>
+        <ul id="social-buttons">
+            <li id="twitter"></li>
+            <li id="facebook"></li>
+            <li id="hatena"></li>
+            <li id="google"></li>
+        </uL>
+        <p><a href="https://github.com/Korilakkuma/XSound" id="forkme-banner" target="_blank">View on GitHub</a></p>
+        <h1 id="project-title">XSound</h1>
+        <h2 id="project-tagline">HTML5 Web Audio API Library</h2>
+    </header>
+
+    <div id="contents">
+        <div id="maincontents">
+            <div id="loading-animation">
+                <img src="images/loading-animation.gif" alt="Now Loading ..." width="50" height="50" />
+            </div>
+        </div>
+        <hr class="navigation-separator" />
+        <!-- /#maincontents -->
+        <nav id="sidebar">
+            <section>
+                <h2><a href="#index">Overview</a></h2>
+            </section>
+            <section>
+                <h2><a href="#" id="xsound-api">XSound</a></h2>
+                <dl>
+                    <dt>Properties</dt>
+                    <dd><a href="#xsound-is-xsound">IS_XSOUND</a></dd>
+                    <dd><a href="#xsound-sample-rate">SAMPLE_RATE</a></dd>
+                    <dd><a href="#xsound-number-of-inputs">NUMBER_OF_INPUTS</a></dd>
+                    <dd><a href="#xsound-number-of-outputs">NUMBER_OF_OUTPUTS</a></dd>
+                    <dt>Methods</dt>
+                    <dd><a href="#xsound-ajax">ajax</a></dd>
+                    <dd><a href="#xsound-clone">clone</a></dd>
+                    <dd><a href="#xsound-convert-time">convertTime</a></dd>
+                    <dd><a href="#xsound-decode">decode</a></dd>
+                    <dd><a href="#xsound-file">file</a></dd>
+                    <dd><a href="#xsound-free">free</a></dd>
+                    <dd><a href="#xsound-get">get</a></dd>
+                    <dd><a href="#xsound-get-current-time">getCurrentTime</a></dd>
+                    <dd><a href="#xsound-no-conflict">noConflict</a></dd>
+                    <dd><a href="#xsound-read">read</a></dd>
+                    <dd><a href="#xsound-to-frequencies">toFrequencies</a></dd>
+                    <dd><a href="#xsound-fullscreen">fullscreen</a></dd>
+                    <dd><a href="#xsound-exit-fullscreen">exitFullscreen</a></dd>
+                </dl>
+            </section>
+            <section>
+                <h2><a href="#" id="oscillator-api">Oscillator</a></h2>
+                <dl>
+                    <dt>Methods</dt>
+                    <dd><a href="#oscillator-setup">setup</a></dd>
+                    <dd><a href="#oscillator-ready">ready</a></dd>
+                    <dd><a href="#oscillator-start">start</a></dd>
+                    <dd><a href="#oscillator-stop">stop</a></dd>
+                    <dd><a href="#oscillator-param">param</a></dd>
+                    <dd><a href="#oscillator-params">params</a></dd>
+                    <dd><a href="#oscillator-to-json">toJSON</a></dd>
+                    <dd><a href="#oscillator-get">get</a></dd>
+                    <dd><a href="#oscillator-length">length</a></dd>
+                    <dd><a href="#oscillator-oscillator-param">Oscillator#param</a></dd>
+                    <dd><a href="#oscillator-oscillator-state">Oscillator#state</a></dd>
+                    <dd><a href="#oscillator-oscillator-get">Oscillator#get</a></dd>
+                </dl>
+            </section>
+            <section>
+                <h2><a href="#" id="oneshot-api">One-shot</a></h2>
+                <dl>
+                    <dt>Methods</dt>
+                    <dd><a href="#oneshot-setup">setup</a></dd>
+                    <dd><a href="#oneshot-ready">ready</a></dd>
+                    <dd><a href="#oneshot-start">start</a></dd>
+                    <dd><a href="#oneshot-stop">stop</a></dd>
+                    <dd><a href="#oneshot-param">param</a></dd>
+                    <dd><a href="#oneshot-params">params</a></dd>
+                    <dd><a href="#oneshot-to-json">toJSON</a></dd>
+                    <dd><a href="#oneshot-get">get</a></dd>
+                </dl>
+            </section>
+            <section>
+                <h2><a href="#" id="audio-api">Audio</a></h2>
+                <dl>
+                    <dt>Methods</dt>
+                    <dd><a href="#audio-setup">setup</a></dd>
+                    <dd><a href="#audio-ready">ready</a></dd>
+                    <dd><a href="#audio-start">start</a></dd>
+                    <dd><a href="#audio-stop">stop</a></dd>
+                    <dd><a href="#audio-param">param</a></dd>
+                    <dd><a href="#audio-params">params</a></dd>
+                    <dd><a href="#audio-to-json">toJSON</a></dd>
+                    <dd><a href="#audio-get">get</a></dd>
+                    <dd><a href="#audio-toggle">toggle</a></dd>
+                    <dd><a href="#audio-is-buffer">isBuffer</a></dd>
+                    <dd><a href="#audio-is-source">isSource</a></dd>
+                    <dd><a href="#audio-is-paused">isPaused</a></dd>
+                </dl>
+            </section>
+            <section>
+                <h2><a href="#" id="media-api">Media</a></h2>
+                <dl>
+                    <dt>Methods</dt>
+                    <dd><a href="#media-setup">setup</a></dd>
+                    <dd><a href="#media-ready">ready</a></dd>
+                    <dd><a href="#media-start">start</a></dd>
+                    <dd><a href="#media-stop">stop</a></dd>
+                    <dd><a href="#media-param">param</a></dd>
+                    <dd><a href="#media-params">params</a></dd>
+                    <dd><a href="#media-to-json">toJSON</a></dd>
+                    <dd><a href="#media-get">get</a></dd>
+                    <dd><a href="#media-toggle">toggle</a></dd>
+                    <dd><a href="#media-is-media">isMedia</a></dd>
+                    <dd><a href="#media-is-source">isSource</a></dd>
+                    <dd><a href="#media-is-paused">isPaused</a></dd>
+                </dl>
+            </section>
+            <section>
+                <h2><a href="#" id="stream-api">Stream</a></h2>
+                <dl>
+                    <dt>Methods</dt>
+                    <dd><a href="#stream-setup">setup</a></dd>
+                    <dd><a href="#stream-ready">ready</a></dd>
+                    <dd><a href="#stream-start">start</a></dd>
+                    <dd><a href="#stream-stop">stop</a></dd>
+                    <dd><a href="#stream-param">param</a></dd>
+                    <dd><a href="#stream-params">params</a></dd>
+                    <dd><a href="#stream-to-json">toJSON</a></dd>
+                    <dd><a href="#stream-get">get</a></dd>
+                    <dd><a href="#stream-toggle">toggle</a></dd>
+                    <dd><a href="#stream-is-streaming">isStreaming</a></dd>
+                </dl>
+            </section>
+            <section>
+                <h2><a href="#" id="mixer-api">Mixer</a></h2>
+                <dl>
+                    <dt>Methods</dt>
+                    <dd><a href="#mixer-mix">mix</a></dd>
+                    <dd><a href="#mixer-get">get</a></dd>
+                </dl>
+            </section>
+            <section>
+                <h2><a href="#" id="midi-api">MIDI</a></h2>
+                <dl>
+                    <dt>Methods</dt>
+                    <dd><a href="#midi-setup">setup</a></dd>
+                    <dd><a href="#midi-get">get</a></dd>
+                </dl>
+            </section>
+            <section>
+                <h2><a href="#" id="mml-api">MML</a></h2>
+                <dl>
+                    <dt>Methods</dt>
+                    <dd><a href="#mml-setup">setup</a></dd>
+                    <dd><a href="#mml-ready">ready</a></dd>
+                    <dd><a href="#mml-start">start</a></dd>
+                    <dd><a href="#mml-stop">stop</a></dd>
+                    <dd><a href="#mml-get">get</a></dd>
+                    <dd><a href="#mml-is-sequences">isSequences</a></dd>
+                    <dd><a href="#mml-is-paused">isPaused</a></dd>
+                    <dd><a href="#mml-create">create</a></dd>
+                </dl>
+            </section>
+            <section>
+                <h2><a href="#" id="effectors-api">Effectors</a></h2>
+                <dl>
+                    <dt>Modules</dt>
+                    <dd><a href="#effectors-autopanner">autopanner</a></dd>
+                    <dd><a href="#effectors-chorus">chorus</a></dd>
+                    <dd><a href="#effectors-compressor">compressor</a></dd>
+                    <dd><a href="#effectors-delay">delay</a></dd>
+                    <dd><a href="#effectors-distortion">distortion</a></dd>
+                    <dd><a href="#effectors-envelope-generator">envelopegenerator</a></dd>
+                    <dd><a href="#effectors-equalizer">equalizer</a></dd>
+                    <dd><a href="#effectors-filter">filter</a></dd>
+                    <dd><a href="#effectors-flanger">flanger</a></dd>
+                    <dd><a href="#effectors-glide">glide</a></dd>
+                    <dd><a href="#effectors-noisegate">noisegate</a></dd>
+                    <dd><a href="#effectors-phaser">phaser</a></dd>
+                    <dd><a href="#effectors-reverb">reverb</a></dd>
+                    <dd><a href="#effectors-ringmodulator">ringmodulator</a></dd>
+                    <dd><a href="#effectors-tremolo">tremolo</a></dd>
+                    <dd><a href="#effectors-vocalcanceler">vocalcanceler</a></dd>
+                    <dd><a href="#effectors-wah">wah</a></dd>
+                </dl>
+            </section>
+            <section>
+                <h2><a href="#" id="analyser-api">Analyser</a></h2>
+                <dl>
+                    <dt>Methods</dt>
+                    <dd><a href="#analyser-domain">domain</a></dd>
+                    <dd><a href="#analyser-param">param</a></dd>
+                    <dd><a href="#analyser-get">get</a></dd>
+                    <dd><a href="#analyser-domain-setup">domain#setup</a></dd>
+                    <dd><a href="#analyser-domain-param">domain#param</a></dd>
+                    <dd><a href="#analyser-domain-state">domain#state</a></dd>
+                    <dd><a href="#analyser-domain-create">domain#create</a></dd>
+                    <dd><a href="#analyser-time-overview-update">TimeOverview#update</a></dd>
+                    <dd><a href="#analyser-time-overview-drag">TimeOverview#drag</a></dd>
+                </dl>
+            </section>
+            <section>
+                <h2><a href="#" id="recorder-api">Recorder</a></h2>
+                <dl>
+                    <dt>Methods</dt>
+                    <dd><a href="#recorder-setup">setup</a></dd>
+                    <dd><a href="#recorder-ready">ready</a></dd>
+                    <dd><a href="#recorder-start">start</a></dd>
+                    <dd><a href="#recorder-stop">stop</a></dd>
+                    <dd><a href="#recorder-param">param</a></dd>
+                    <dd><a href="#recorder-clear">clear</a></dd>
+                    <dd><a href="#recorder-create">create</a></dd>
+                    <dd><a href="#recorder-get-active-track">getActiveTrack</a></dd>
+                </dl>
+            </section>
+            <section>
+                <h2><a href="#" id="session-api">Session</a></h2>
+                <dl>
+                    <dt>Methods</dt>
+                    <dd><a href="#session-setup">setup</a></dd>
+                    <dd><a href="#session-start">start</a></dd>
+                    <dd><a href="#session-close">close</a></dd>
+                    <dd><a href="#session-get">get</a></dd>
+                    <dd><a href="#session-is-connected">isConnected</a></dd>
+                    <dd><a href="#session-state">state</a></dd>
+                </dl>
+            </section>
+        </nav>
+        <!-- /#sidebar -->
+        <hr class="navigation-separator" />
+    </div>
+    <footer>
+        <p>XSound maintained by <a href="https://github.com/Korilakkuma">Korilakkuma</a></p>
+        <!--<p>Published with <a href="//pages.github.com">GitHub Pages</a></p>-->
+    </footer>
+</body>
+</html>

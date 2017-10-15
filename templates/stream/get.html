@@ -1,0 +1,27 @@
+        <section>
+            <section>
+                <h1>get <span class="returns">Returns : <span>MediaStreamAudioSourceNode</span></span></h1>
+                <hr />
+                <p>
+                    This method gets the instance of MediaStreamAudioSourceNode.
+                </p>
+            </section>
+            <section>
+<textarea class="codemirror">
+console.log(&quot;X(&apos;stream&apos;).get&quot;);
+
+var constraints = {
+    audio : true,
+    video : true
+};
+
+try {
+    X(&apos;stream&apos;).setup(constraints, function(){
+        console.dir(X(&apos;stream&apos;).get());
+    }, function(){}).ready().start();
+} catch (error) {
+    window.alert(error.message);
+}
+</textarea>
+            </section>
+        </section>

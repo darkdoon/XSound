@@ -1,0 +1,53 @@
+        <section>
+            <section>
+                <h1>ready <span class="returns">Returns : <span>MML</span></span></h1>
+                <hr />
+                <p>
+                    This method parses MML string.
+                </p>
+                <table>
+                    <caption>Arguments</caption>
+                    <thead><tr><th scope="col"></th><th scope="col">Type</th><th scope="col">Description</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <th>1st</th>
+                            <td><span class="type">OscillatorModule</span> or <span class="type">OneshotModule</span></td>
+                            <td>This value is the instance of OscillatorModule or OneshotModule.</td>
+                        </tr>
+                        <tr>
+                            <th>2nd</th>
+                            <td><span class="type">Array</span></td>
+                            <td>This value is the array that contains MML string.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <caption>Description Rule</caption>
+                    <thead><tr><th scope="col">Music</th><th scope="col">MML</th></tr></thead>
+                    <tbody>
+                        <tr><td>Scale</td><td>C D E F G A B</td></tr>
+                        <tr><td>Duration</td><td>1 2 4 8 16 32 64 128 256</td></tr>
+                        <tr><td>Triplet / Nonuplet</td><td>6 8 12 18 24 36 48 72 96 144 192</td></tr>
+                        <tr><td>Sharp</td><td>+, #</td></tr>
+                        <tr><td>Flat</td><td>-</td></tr>
+                        <tr><td>Rest</td><td>R</td></tr>
+                        <tr><td>Dotted note</td><td>.</td></tr>
+                        <tr><td>Tie</td><td>&amp;</td></tr>
+                        <tr><td>Octave</td><td>O</td></tr>
+                        <tr><td>Tempo</td><td>T</td></tr>
+                    </tbody>
+                </table>
+            </section>
+            <section>
+<textarea class="codemirror">
+console.log(&quot;X(&apos;mml&apos;).ready&quot;);
+
+X(&apos;mml&apos;).setup();
+
+var mainpart  = &apos;T74O4C4D4E4F4G4A4B4O5C4&apos;;
+var subpart   = &apos;T74O3C4D4E4F4G4A4B4O5C4&apos;;
+
+X(&apos;mml&apos;).ready(X(&apos;oscillator&apos;), [mainpart, subpart]);
+</textarea>
+            </section>
+        </section>

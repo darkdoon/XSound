@@ -1,0 +1,38 @@
+        <section>
+            <section>
+                <h1>isMedia <span class="returns">Returns : <span>boolean</span></span></h1>
+                <hr />
+                <p>
+                    This method is to check for presence or absence of HTMLMediaElement.
+                </p>
+            </section>
+            <section>
+<textarea class="codemirror">
+console.log(&quot;X(&apos;media&apos;).isMedia&quot;);
+
+console.log(X(&apos;media&apos;).isMedia());
+
+var mediaPlayer = null;
+
+if (X.IS_XSOUND) {
+    mediaPlayer = X(&apos;media&apos;);  // Use Web Audio API (MediaElementAudioSourceNode)
+} else {
+    mediaPlayer = X(&apos;media&apos;);  // Not use Web Audio API (Fallback by HTMLMediaElement)
+}
+
+try {
+    X(&apos;media&apos;).setup({
+        media   : document.querySelector(&apos;audio&apos;),
+        type    : &apos;audio&apos;,
+        formats : [&apos;wav&apos;, &apos;ogg&apos;, &apos;mp3&apos;]
+    });
+
+    console.log(X(&apos;media&apos;).isMedia());
+} catch (error) {
+    // Cannot use HTMLMediaElement (for example, less than IE9)
+    window.alert(error.message);
+}
+</textarea>
+                <p><audio controls></audio></p>
+            </section>
+        </section>
