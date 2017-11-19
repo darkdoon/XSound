@@ -2,7 +2,7 @@
             <section>
                 <h1>XSound</h1>
                 <hr />
-                <p>HTML5 Web Audio API Library</p>
+                <p>Web Audio API Library</p>
             </section>
             <section>
                 <h1>Overview</h1>
@@ -15,7 +15,7 @@
                     <li>Create Sound</li>
                     <li>Play the One-Shot Audio</li>
                     <li>Play the Audio</li>
-                    <li>Play the Media (Fallback by HTML5 MediaElement)</li>
+                    <li>Play the Media</li>
                     <li>Streaming (by WebRTC)</li>
                     <li>MIDI (by Web MIDI API)</li>
                     <li>MML (Music Macro Language)</li>
@@ -24,6 +24,7 @@
                     <li>Recording (Create WAVE file)</li>
                     <li>Session (by WebSocket)</li>
                 </ul>
+                <!--
                 <p>The structure of description is the following.</p>
 <pre>
 <code>
@@ -63,6 +64,12 @@ X(/* sound source */).module(/* effectors, analyser, recorder, session */).stop(
 X('oscillator').setup(true).ready().start(440);
 </code>
 </pre>
+                -->
+            </section>
+            <section>
+                <h1>Getting Started</h1>
+                <hr />
+<pre><code>X('oscillator').setup(true).ready().start(440);</code></pre>
             </section>
             <section>
                 <h1>Demo</h1>
@@ -83,19 +90,11 @@ X('oscillator').setup(true).ready().start(440);
             </section>
             <section>
                 <h1>Installation</h1>
-<pre><code>$ npm install xsound</code></pre>
-                <p>or,</p>
-<pre><code>$ bower install xsound</code></pre>
-            </section>
-                <p>In the case of using WebSocket,</p>
-<pre><code>$$ npm install websocket</code></pre>
-                <p>or,</p>
-<pre><code>$ npm install ws</code></pre>
+                <hr />
+<pre><code>$ npm install --save xsound</code></pre>
             <section>
                 <h1>Usage</h1>
                 <hr />
-<pre><code>&lt;script type="text/javascript" src="xsound.min.js"&gt;&lt;/script&gt;</code></pre>
-                <p>In the case of development,</p>
 <pre><code>&lt;script type="text/javascript" src="xsound.js"&gt;&lt;/script&gt;</code></pre>
                 <p>In the case of using WebSocket,</p>
 <pre><code>$ node xsound-server-session-websocket.js</code></pre>
