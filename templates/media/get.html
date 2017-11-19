@@ -10,14 +10,6 @@
 <textarea class="codemirror">
 console.log(&quot;X(&apos;media&apos;).get&quot;);
 
-var mediaPlayer = null;
-
-if (X.IS_XSOUND) {
-    mediaPlayer = X(&apos;media&apos;);
-} else {
-    mediaPlayer = X(&apos;media&apos;);
-}
-
 var audio = document.querySelector(&apos;audio&apos;);
 
 try {
@@ -27,7 +19,6 @@ try {
         formats : [&apos;wav&apos;, &apos;ogg&apos;, &apos;mp3&apos;]
     });
 } catch (error) {
-    // Cannot use HTMLMediaElement (for example, less than IE9)
     window.alert(error.message);
 }
 

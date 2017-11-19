@@ -1,6 +1,6 @@
         <section>
             <section>
-                <h1>stop <span class="returns">Returns : <span>MediaModule | MediaFallbackModule</span></span></h1>
+                <h1>stop <span class="returns">Returns : <span>MediaModule</span></span></h1>
                 <hr />
                 <p>
                     This method stops media.
@@ -9,14 +9,6 @@
             <section>
 <textarea class="codemirror">
 console.log(&quot;X(&apos;media&apos;).stop&quot;);
-
-var mediaPlayer = null;
-
-if (X.IS_XSOUND) {
-    mediaPlayer = X(&apos;media&apos;);  // Use Web Audio API (MediaElementAudioSourceNode)
-} else {
-    mediaPlayer = X(&apos;media&apos;);  // Not use Web Audio API (Fallback by HTMLMediaElement)
-}
 
 var listeners = {
     canplaythrough : function(event) {
@@ -43,7 +35,6 @@ try {
         listeners : listeners
     }).ready(&apos;resources/audio/forever-love-piano-instruments&apos;);
 } catch (error) {
-    // Cannot use HTMLMediaElement (for example, less than IE9)
     window.alert(error.message);
 }
 </textarea>

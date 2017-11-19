@@ -12,14 +12,6 @@ console.log(&quot;X(&apos;media&apos;).isSource&quot;);
 
 console.log(X(&apos;media&apos;).isSource());
 
-var mediaPlayer = null;
-
-if (X.IS_XSOUND) {
-    mediaPlayer = X(&apos;media&apos;);  // Use Web Audio API (MediaElementAudioSourceNode)
-} else {
-    mediaPlayer = X(&apos;media&apos;);  // Not use Web Audio API (Fallback by HTMLMediaElement)
-}
-
 var listeners = {
     loadstart : function(event) {
         console.log(&apos;loadstart&apos;);
@@ -36,7 +28,6 @@ try {
 
     console.log(X(&apos;media&apos;).isSource());
 } catch (error) {
-    // Cannot use HTMLMediaElement (for example, less than IE9)
     window.alert(error.message);
 }
 </textarea>
