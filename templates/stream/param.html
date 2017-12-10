@@ -56,10 +56,20 @@ document.querySelector(&apos;[type=&quot;range&quot;]&apos;).addEventListener(&a
 
     document.querySelector(&apos;#output-master-volume&apos;).textContent = X(&apos;stream&apos;).param(&apos;mastervolume&apos;);
 }, false);
+
+document.querySelector(&apos;[type=&quot;checkbox&quot;]&apos;).addEventListener(&apos;click&apos;, function() {
+    X(&apos;stream&apos;).param(&apos;output&apos;, this.checked);
+    // or,
+    // X(&apos;stream&apos;).param({output : this.checked});
+
+    X('stream').start();
+}, false);
 </textarea>
                 <dl class="sound-controllers">
                     <dt>mastervolume : <span id="output-master-volume">1</span></dt>
                     <dd><input type="range" value="1" min="0" max="1" step="0.05" /><dd>
+                    <dt><label><input type="checkbox" checked /> output</label></dt>
+                    <dd class="invisibility"></dd>
                 </dl>
             </section>
         </section>

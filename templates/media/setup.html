@@ -21,6 +21,8 @@
                                     <dd>This value is the array that contains media formats.</dd>
                                     <dt>listeners <span class="type">Object</span></dt>
                                     <dd>This value is the associative array that contains event listeners that are defined by HTMLMediaElement.</dd>
+                                    <dt>autoplay <span class="type">boolean</span></dt>
+                                    <dd>This value should be true in the case of autoplay. The default value is false.</dd>
                                 </dl>
                             </td>
                         </tr>
@@ -49,7 +51,8 @@ try {
     X(&apos;media&apos;).setup({
         media     : document.querySelector(&apos;audio&apos;),
         formats   : [&apos;wav&apos;, &apos;ogg&apos;, &apos;mp3&apos;],
-        listeners : listeners
+        listeners : listeners,
+        autoplay  : false
     });
 } catch (error) {
     window.alert(error.message);
